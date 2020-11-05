@@ -1,0 +1,9 @@
+GRANT select, insert
+ON DEPARTMENTS
+TO user1
+WITH GRANT OPTION;
+
+GRANT select
+ON DEPARTMENTS
+TO user2;
+

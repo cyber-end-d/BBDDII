@@ -1,0 +1,14 @@
+/*Escriba una sentencia SQL para mostrar el número de empleado, los apellidos, la fecha de inicio
+y el salario, de forma que aparezcan quienes informan directo del empleado de Id 102 */
+
+/*Escriba una consulta para mostrar lo siguiente para los departamentos cuyos identificadores
+?sean mayores que 50: El salario total para las ciudades en las que estén ubicados los departamentos ?*/
+
+/*Muestre el número de departamento, el nombre de departamento y el número de empleados que trabajan
+en cada departamento que Incluya menos de 3 empleados:??*/
+
+/*Muestre todos los empleados que tengan directores con un salario superior a $15.000. 
+Muestre?los siguientes datos: nombre de empleado, nombre de director, salario del director 
+y el grado de salario del director. */
+
+/*¿Cuántos empleados tienen un nombre que termine en 'n'? Cree dos soluciones posibles. ??*/

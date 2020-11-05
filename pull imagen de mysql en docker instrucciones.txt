@@ -1,0 +1,94 @@
+//comandos del tipo
+docker <comando>
+//por ejemplo pull, exec, run y stop para contenedores
+
+docker pull mysql
+//trae la imagen de mysql para que corra en docker
+
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+//donde some-mysql es el nombre a asignarle al contenedor, my-secret-pw la contraseña para el root de mysql y tag la versión específica (o poner latest para la ultima)
+
+docker ps
+//para checkear si esta corriendo mysql
+
+docker exec -it "some-mysql" /bin/bash
+//para conectarse a la consola de mysql, some-mysql es el nombre del contenedor creado. -it para que muestre una interfaz interactiva y /bin/bash porque es un terminal de linux
+
+mysql -u root -p
+//para conectarse a la consola, poner la contraseña de antes (my-secret-pw) no se ve pero escribe igual
+
+CREATE DATABASE BBDD2;
+//crea bd y checkear que se creo con
+
+SHOW DATABASES;
+
+//del script que mando por mail creamos tabla empleados
+
+CREATE TABLE `employees` (
+ `EMPLOYEE_ID` mediumint(9) NOT NULL,
+ `FIRST_NAME` varchar(20) DEFAULT NULL,
+ `LAST_NAME` varchar(25) NOT NULL,
+ `PHONE_NUMBER` varchar(20) DEFAULT NULL,
+ `HIRE_DATE` datetime(6) NOT NULL,
+ `JOB_ID` varchar(10) NOT NULL,
+ `SALARY` decimal(8,2) DEFAULT NULL,
+ `COMMISSION_PCT` decimal(2,2) DEFAULT NULL,
+ `MANAGER_ID` mediumint(9) DEFAULT NULL,
+ `DEPARTMENT_ID` smallint(6) DEFAULT NULL,
+ PRIMARY KEY (`EMPLOYEE_ID`));
+
+//y checkear que la tabla se creo con
+SHOW TABLES;
+
+//tirar un insert para probar que la cantidad de columnas y los tipos de datos coincidan
+
+INSERT INTO `employees` VALUES (100,'Steve','Marshall','515.123.4567','2005-04-06 00:00:00.000000','AD_PRES',24000.00,NULL,NULL,90);
+
+//checkear si esta bien con
+
+SELECT * FROM employees;
+
+//si devuelve el registro eliminarlo
+
+DELETE FROM employees;
+
+//tirar todos los inserts del script para la tabla employees
+INSERT INTO `employees` VALUES (100,'Steve','Marshall','515.123.4567','2005-04-06 00:00:00.000000','AD_PRES',24000.00,NULL,NULL,90);
+INSERT INTO `employees` VALUES (101,'Jhon','Kusher','515.123.4568','2014-10-29 00:00:00.000000','AD_VP',17000.00,NULL,100,90);
+INSERT INTO `employees` VALUES (102,'Lex','De Boer','515.123.4569','2014-12-24 00:00:00.000000','AD_VP',17000.00,NULL,100,90);
+INSERT INTO `employees` VALUES (103,'Alexander','Harmat','590.423.4567','2016-05-19 00:00:00.000000','IT_PROG',9000.00,NULL,102,60);
+INSERT INTO `employees` VALUES (104,'Bruce','Polikarpenko','590.423.4568','2015-07-11 00:00:00.000000','IT_PROG',6000.00,NULL,103,60);
+INSERT INTO `employees` VALUES (107,'Diana','Lopez','590.423.5567','2014-06-08 00:00:00.000000','IT_PROG',4200.00,NULL,103,60);
+INSERT INTO `employees` VALUES (124,'Oscar','Galindez','650.123.5234','2016-06-28 00:00:00.000000','ST_MAN',5800.00,NULL,100,50);
+INSERT INTO `employees` VALUES (142,'Curtis','Davies','650.121.2994','2015-03-29 00:00:00.000000','ST_CLERK',3100.00,NULL,124,50);
+INSERT INTO `employees` VALUES (143,'Diego','Garcia','650.121.2874','2015-02-25 00:00:00.000000','ST_CLERK',2600.00,NULL,124,50);
+INSERT INTO `employees` VALUES (144,'Peter','Reid','650.121.2004','2015-12-29 00:00:00.000000','ST_CLERK',2500.00,NULL,124,50);
+INSERT INTO `employees` VALUES (149,'Faris','Al Sultan','011.44.1344.429018','2015-07-16 00:00:00.000000','SA_MAN',10500.00,0.20,100,80);
+INSERT INTO `employees` VALUES (174,'Ellen','Leder','011.44.1644.429267','2015-09-03 00:00:00.000000','SA_REP',11000.00,0.30,149,80);
+INSERT INTO `employees` VALUES (176,'Gary','Taylor','011.44.1644.429265','2015-03-25 00:00:00.000000','SA_REP',8600.00,0.20,149,80);
+INSERT INTO `employees` VALUES (178,'Carol','Montgomery','011.44.1644.429263','2015-01-31 00:00:00.000000','SA_REP',7000.00,0.15,149,NULL);
+INSERT INTO `employees` VALUES (200,'Mateo','Orlandini','515.123.4444','2015-09-10 00:00:00.000000','AD_ASST',4400.00,NULL,101,10);
+INSERT INTO `employees` VALUES (201,'Ulises','Giusti','515.123.5555','2014-03-24 00:00:00.000000','MK_MAN',13000.00,NULL,100,20);
+INSERT INTO `employees` VALUES (202,'Martin','Sturla','603.123.6666','2014-12-12 00:00:00.000000','MK_REP',6000.00,NULL,201,20);
+INSERT INTO `employees` VALUES (205,'Julieta','Cardenas','515.123.8080','2015-07-20 00:00:00.000000','AC_MGR',12000.00,NULL,101,110);
+INSERT INTO `employees` VALUES (206,'William','De Boom','515.123.8181','2016-05-22 00:00:00.000000','AC_ACCOUNT',8300.00,NULL,205,110);
+INSERT INTO `employees` VALUES (456,NULL,'ppe',NULL,'2015-03-26 00:00:00.000000','AD_VP',NULL,NULL,NULL,NULL);
+
+//y checkear con
+
+SELECT * FROM employees;
+
+--------------------------------------------------------------------------------
+25/3
+
+
+
+select employee_id, CONCAT(first_name, last_name) NAME, job_id, LENGTH(last_name), INSTR(last_name, 'a') "Contains 'a'?"
+FROM employees
+ WHERE SUBSTR(job_id, 4)='REP';
+
+
+SELECT CURRENT_DATE();
+SELECT CURDATE();
+
+SELECT DATEDIFF(curdate(),hire_date)/7 from employees;

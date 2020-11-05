@@ -1,0 +1,3 @@
+ALTER TABLE EMP
+ADD (COMMISSION smallint(2,2),
+     CONSTRAINT emp_com_min CHECK (COMMISSION > 0));

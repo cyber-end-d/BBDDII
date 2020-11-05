@@ -1,0 +1,9 @@
+SELECT EMPLOYEE_ID, JOB_ID
+FROM employees
+WHERE (EMPLOYEE_ID, JOB_ID)
+    IN (SELECT EMPLOYEE_ID, JOB_ID
+        FROM employees
+        INTERSECT
+        SELECT EMPLOYEE_ID, JOB_ID
+        FROM job_history);
+

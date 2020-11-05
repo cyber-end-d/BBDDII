@@ -1,0 +1,1 @@
+El de obtención de acceso a la base de datos (CONNECT), es un privilegio del sistema

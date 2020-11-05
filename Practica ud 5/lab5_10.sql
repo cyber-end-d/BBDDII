@@ -1,0 +1,4 @@
+SELECT D.DEPARTMENT_NAME AS 'Name', D.LOCATION_ID AS 'Location', COUNT(E.EMPLOYEE_ID) AS 'Number of people', ROUND(E.SALARY,2) AS 'Salary'
+FROM departments AS 'D'
+JOIN employees AS 'E'
+ON (D.DEPARTMENT_ID = E.DEPARTMENT_ID);

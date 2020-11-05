@@ -1,0 +1,1 @@
+Crear un rol común a todos y asignárselo a ese grupo de usuarios

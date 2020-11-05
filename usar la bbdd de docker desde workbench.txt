@@ -1,0 +1,24 @@
+//Start your mysql image with all port mappings required:
+docker run -p 3306:3306 --name=mysql57 -d mysql/mysql-server:5.7
+
+//grab default password
+docker logs mysql57 2>&1 | grep GENERATED
+
+//connect
+docker exec -it mysql57 mysql -uroot -p
+
+//change password
+SET PASSWORD = PASSWORD('<your_new_password>');
+
+//run sql
+update mysql.user set host = '%' where user='root';
+
+//quit mysql client
+exit
+
+//restart container
+docker restart mysql57
+
+Now you will be able to connect from MySQL Workbench to
+host: usar ip que tire docker cuando inicia (en startup: docker is configured to use the default machine with IP <x.x.x.x>)
+port: 3306

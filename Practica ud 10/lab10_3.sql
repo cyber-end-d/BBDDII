@@ -1,0 +1,3 @@
+ALTER TABLE EMP
+ADD ( DEPT_ID smallint(6),
+      CONSTRAINT my_emp_dept_id_fk FOREIGN KEY (DEPT_ID) REFERENCES DEPT (ID) );

@@ -1,0 +1,3 @@
+SELECT LAST_NAME
+FROM employees
+WHERE LAST_NAME LIKE '%a%e%';

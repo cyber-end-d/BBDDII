@@ -1,0 +1,13 @@
+/*Escriba una consulta para mostrar lo siguiente para los departamentos cuyos
+ identificadores sean mayores que 80:El salario total para cada cargo
+ dentro de un departamento.*/
+/*Escriba una consulta para mostrar los siguientes agrupamientos:
+Department ID, Job ID . La consulta debe calcular el salario máximo
+y el mínimo para cada uno de esos grupos. */
+/*Muestre el número de empleado, los apellidos, el salario, el número de departamento
+y el salario medio de su departamento para todos los empleados.*/
+/*Muestre el número de departamento, el nombre, el número de empleados y el salario medio
+de todos los departamentos, junto con los nombres, los salarios y
+los cargos de los empleados que trabajan en cada departamento.*/
+/* Muestre los empleados sin comisión con un
+aumento del 10 % en su salario (redondee lossalarios). */
